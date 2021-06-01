@@ -1,0 +1,6 @@
+[group1]
+
+host01
+
+[all:vars]
+my_name=Default student name

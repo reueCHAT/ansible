@@ -1,0 +1,22 @@
+---
+  
+- name: Web server installed
+  hosts: group1
+  become: yes
+  vars:
+    my_name: Ivan Yanchenko
+  tasks:
+  - name: latest nginx version installed
+    apt:
+      name: nginx-light
+      state: latest
+      update_cache: true
+  - name: nginx enabled and running
+    service:
+      name: nginx
+      enabled: true
+      state: started
+  - name: correct index.html is present
+    template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
