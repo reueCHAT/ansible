@@ -1,0 +1,10 @@
+---
+- name: manage httpd.conf
+  hosts: group1
+  become: true
+  tasks:
+  - name: Copy web 8080 configuration file
+    copy:
+      src: web-8080.conf
+      dest: /etc/nginx/sites-enabled/
+    when: has_8080
